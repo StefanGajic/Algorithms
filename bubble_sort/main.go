@@ -5,23 +5,13 @@ import (
 )
 
 func sweep(numbers []int) {
-	numbersLength := len(numbers)
-	firstIndex := 0
-	secondIndex := 1
 
-	for secondIndex < numbersLength {
-		firstNumber := numbers[firstIndex]
-		secondNumber := numbers[secondIndex]
-		if firstNumber > secondNumber {
-			numbers[firstIndex] = secondNumber
-			numbers[secondIndex] = firstNumber
+	for i := 0; i < len(numbers)-1; i++ {
+		if numbers[i] > numbers[i+1] {
+			numbers[i], numbers[i+1] = numbers[i+1], numbers[i]
 		}
-
-		firstIndex++
-		secondIndex++
 	}
 }
-
 func bubbleSort(numbers []int) {
 	numbersLength := len(numbers)
 	for i := 0; i < numbersLength; i++ {
