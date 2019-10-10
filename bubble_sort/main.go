@@ -4,23 +4,24 @@ import (
 	"fmt"
 )
 
-func sweep(numbers []int) {
-
-	for i := 0; i < len(numbers)-1; i++ {
-		if numbers[i] > numbers[i+1] {
-			numbers[i], numbers[i+1] = numbers[i+1], numbers[i]
-		}
-	}
-}
 func bubbleSort(numbers []int) {
-	numbersLength := len(numbers)
-	for i := 0; i < numbersLength; i++ {
-		sweep(numbers)
+	numbersLength := len(numbers) - 1
+	for {
+		swapped := false
+		for i := 0; i < numbersLength; i++ {
+			if numbers[i] > numbers[i+1] {
+				swapped = true
+				numbers[i], numbers[i+1] = numbers[i+1], numbers[i]
+			}
+		}
+		if swapped == false {
+			break
+		}
 	}
 }
 
 func main() {
-	numbers := []int{2, 5, 6, 12, 0, 3, 7, 34, 21, 8}
+	numbers := []int{5, 2, 4, 6, 7, 8, 9, 10, 11, 13, 19}
 	fmt.Println("Numbers: ", numbers)
 
 	bubbleSort(numbers)
