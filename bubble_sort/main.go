@@ -5,16 +5,15 @@ import (
 )
 
 func bubbleSort(numbers []int) {
-	numbersLength := len(numbers) - 1
 	for {
 		swapped := false
-		for i := 0; i < numbersLength; i++ {
+		for i := 0; i < len(numbers)-1; i++ {
 			if numbers[i] > numbers[i+1] {
 				swapped = true
 				numbers[i], numbers[i+1] = numbers[i+1], numbers[i]
 			}
 		}
-		if swapped == false {
+		if !swapped {
 			break
 		}
 	}
